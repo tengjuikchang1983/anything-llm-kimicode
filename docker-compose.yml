@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  anythingllm:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: anythingllm-kimi
+    cap_add:
+      - SYS_ADMIN
+    volumes:
+      - ./.env:/app/server/.env
+      - anythingllm_storage:/app/server/storage
+      - anythingllm_hotdir:/app/collector/hotdir
+      - anythingllm_outputs:/app/collector/outputs
+    ports:
+      - "3001:3001"
+    env_file:
+      - .env
+    environment:
+      - STORAGE_DIR=/app/server/storage
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/api/ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  anythingllm_storage:
+  anythingllm_hotdir:
+  anythingllm_outputs:
