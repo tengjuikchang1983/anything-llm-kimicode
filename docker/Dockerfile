@@ -151,14 +151,14 @@ WORKDIR /app
 FROM build AS backend-build
 COPY --chown=anythingllm:anythingllm ./server /app/server/
 WORKDIR /app/server
-RUN yarn install --production --network-timeout 100000 && yarn cache clean
+RUN yarn install --production --network-timeout 100000 --ignore-engines && yarn cache clean
 WORKDIR /app
 
 # Install collector dependencies
 COPY --chown=anythingllm:anythingllm ./collector/ ./collector/
 WORKDIR /app/collector
 ENV PUPPETEER_DOWNLOAD_BASE_URL=https://storage.googleapis.com/chrome-for-testing-public
-RUN yarn install --production --network-timeout 100000 && yarn cache clean
+RUN yarn install --production --network-timeout 100000 --ignore-engines && yarn cache clean
 
 WORKDIR /app
 USER anythingllm

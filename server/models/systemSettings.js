@@ -604,6 +604,11 @@ const SystemSettings = {
       MoonshotAiModelPref:
         process.env.MOONSHOT_AI_MODEL_PREF || "moonshot-v1-32k",
 
+      // Kimi Code Keys
+      KimiCodeApiKey: !!process.env.KIMI_CODE_API_KEY,
+      KimiCodeModelPref:
+        process.env.KIMI_CODE_MODEL_PREF || "kimi-for-coding",
+
       // Generic OpenAI Keys
       GenericOpenAiBasePath: process.env.GENERIC_OPEN_AI_BASE_PATH,
       GenericOpenAiModelPref: process.env.GENERIC_OPEN_AI_MODEL_PREF,

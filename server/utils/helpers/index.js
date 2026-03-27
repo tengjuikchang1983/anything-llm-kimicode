@@ -240,6 +240,9 @@ function getLLMProvider({ provider = null, model = null } = {}) {
     case "sambanova":
       const { SambaNovaLLM } = require("../AiProviders/sambanova");
       return new SambaNovaLLM(embedder, model);
+    case "kimicode":
+      const { KimiCodeLLM } = require("../AiProviders/kimiCode");
+      return new KimiCodeLLM(embedder, model);
     default:
       throw new Error(
         `ENV: No valid LLM_PROVIDER value found in environment! Using ${process.env.LLM_PROVIDER}`
@@ -416,6 +419,9 @@ function getLLMProviderClass({ provider = null } = {}) {
     case "sambanova":
       const { SambaNovaLLM } = require("../AiProviders/sambanova");
       return SambaNovaLLM;
+    case "kimicode":
+      const { KimiCodeLLM } = require("../AiProviders/kimiCode");
+      return KimiCodeLLM;
     default:
       return null;
   }
@@ -498,6 +504,8 @@ function getBaseLLMProviderModel({ provider = null } = {}) {
       return process.env.PRIVATEMODE_LLM_MODEL_PREF;
     case "sambanova":
       return process.env.SAMBANOVA_LLM_MODEL_PREF;
+    case "kimicode":
+      return process.env.KIMI_CODE_MODEL_PREF;
     default:
       return null;
   }

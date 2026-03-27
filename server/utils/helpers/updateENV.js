@@ -734,6 +734,16 @@ const KEY_MAPPING = {
     checks: [isNotEmpty],
   },
 
+  // Kimi Code Options
+  KimiCodeApiKey: {
+    envKey: "KIMI_CODE_API_KEY",
+    checks: [isNotEmpty],
+  },
+  KimiCodeModelPref: {
+    envKey: "KIMI_CODE_MODEL_PREF",
+    checks: [isNotEmpty],
+  },
+
   // Foundry Options
   FoundryBasePath: {
     envKey: "FOUNDRY_BASE_PATH",

@@ -34,6 +34,7 @@ import GiteeAILogo from "@/media/llmprovider/giteeai.png";
 import DockerModelRunnerLogo from "@/media/llmprovider/docker-model-runner.png";
 import PrivateModeLogo from "@/media/llmprovider/privatemode.png";
 import SambaNovaLogo from "@/media/llmprovider/sambanova.png";
+import KimiCodeLogo from "@/media/llmprovider/kimicode.png";
 
 import OpenAiOptions from "@/components/LLMSelection/OpenAiOptions";
 import GenericOpenAiOptions from "@/components/LLMSelection/GenericOpenAiOptions";
@@ -69,6 +70,7 @@ import GiteeAiOptions from "@/components/LLMSelection/GiteeAIOptions";
 import DockerModelRunnerOptions from "@/components/LLMSelection/DockerModelRunnerOptions";
 import PrivateModeOptions from "@/components/LLMSelection/PrivateModeOptions";
 import SambaNovaOptions from "@/components/LLMSelection/SambaNovaOptions";
+import KimiCodeOptions from "@/components/LLMSelection/KimiCodeOptions";
 
 import LLMItem from "@/components/LLMSelection/LLMItem";
 import System from "@/models/system";
@@ -325,6 +327,13 @@ const LLMS = [
     logo: GiteeAILogo,
     options: (settings) => <GiteeAiOptions settings={settings} />,
     description: "Run GiteeAI's powerful LLMs.",
+  },
+  {
+    name: "Kimi Code",
+    value: "kimicode",
+    logo: KimiCodeLogo,
+    options: (settings) => <KimiCodeOptions settings={settings} />,
+    description: "Run Kimi Code's powerful coding LLM with 262K context window.",
   },
 ];
 
